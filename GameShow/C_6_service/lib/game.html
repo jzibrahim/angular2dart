@@ -1,0 +1,34 @@
+<div class="container" [hidden]="submitted">
+  <h1>Want to play a game {{name}}?</h1>
+  
+  <div class="form-group">
+    <label for="name">Your Name</label>
+    <material-input required [(ngModel)]="name" requiredErrorMsg="Please enter your name">
+    </material-input>
+  </div>
+  <div class="form-group">
+    <label for="level">Select the level</label>
+    <material-radio-group class="input" [(ngModel)]="level" [selected]="EASY">
+      <material-radio [value]="EASY">
+        Easy
+      </material-radio>
+      <material-radio [value]="HARD">
+        Hard
+      </material-radio>
+    </material-radio-group>
+  </div>
+
+  <material-fab raised (trigger)="play()" [disabled]="name.isEmpty">
+    <glyph icon="play_arrow"></glyph>
+  </material-fab>
+</div>
+
+<div [hidden]="!submitted">
+  <material-fab class="reset-button" raised (trigger)="submitted = false">
+    <glyph icon="refresh"></glyph>
+  </material-fab>
+
+  <div *ngIf="card != null" class="message">
+    <card [card]="card" (onAnswered)="next(level)"></card>
+  </div>
+</div>

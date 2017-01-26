@@ -1,0 +1,34 @@
+<div class="container" [hidden]="submitted">
+  <h1>Want to play a game {{name}}?</h1>
+  
+  <div class="form-group">
+    <label for="name">Your Name</label>
+    <material-input required [(ngModel)]="name" requiredErrorMsg="Please enter your name">
+    </material-input>
+  </div>
+  <div class="form-group">
+    <label for="level">Select the level</label>
+    <material-radio-group required [(ngModel)]="level" selected="Easy">
+      <material-radio *ngFor="let level of ['Easy', 'Hard']" [value]="level">
+        {{level}}
+      </material-radio>
+    </material-radio-group>
+  </div>
+
+  <material-fab raised (trigger)="submitted = true" [disabled]="name.isEmpty">
+    <glyph icon="play_arrow"></glyph>
+  </material-fab>
+</div>
+
+<div class="container" [hidden]="!submitted">
+  <material-fab class="reset-button" raised (trigger)="submitted = false">
+    <glyph icon="loop"></glyph>
+  </material-fab>
+
+  <h1>{{name}}, let's play!</h1>
+  <h3>Level: {{level}}</h3>
+
+  <!-- TODO: 10. Use the card component, setting the card to a particular instance of a card. -->
+  <div class="message">
+  </div>
+</div>

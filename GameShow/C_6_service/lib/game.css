@@ -1,0 +1,9 @@
+material-input,
+material-radio-group {
+  display: block;
+  width: 40%;
+}
+
+.reset-button {
+  float: right;
+}

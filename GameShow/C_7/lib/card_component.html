@@ -1,0 +1,23 @@
+<div class="container">
+  <h2>{{card.question}}</h2>
+  <material-radio-group class="input" #options>
+    <material-radio *ngFor="let option of card.options; let i = index" [disabled]="progress != 0"
+      [value]="i">
+      {{option}}
+    </material-radio>
+  </material-radio-group>
+
+  <div class="check-answer">
+    <material-fab [disabled]="progress != 0" (trigger)="answer(options.selected)" raised>
+      <glyph icon="forward"></glyph>
+    </material-fab>
+  </div>
+
+  <div [ngSwitch]="right">
+    <span *ngSwitchWhen="true">You're right!!</span>
+    <span *ngSwitchWhen="false">No, try again.</span>
+  </div>
+
+  <material-progress *ngIf="progress != 0" [activeProgress]="progress">
+  </material-progress>
+</div>

@@ -1,0 +1,20 @@
+<div clas="container">
+  <h2>{{card.question}}</h2>
+  
+  <material-radio-group class="input" #answer>
+    <material-radio *ngFor="let option of card.options; #i = index" [value]="i">
+      {{option}}
+    </material-radio>
+  </material-radio-group>
+
+  <div class="check-answer">
+    <material-fab raised (trigger)="right = card.answer == answer.selected">
+      <glyph icon="checked"></glyph>
+    </material-fab>
+  </div>
+
+  <div [ngSwitch]="right" >
+    <span *ngSwitchWhen="true">You're right!!</span>
+    <span *ngSwitchWhen="false">No, try again.</span>
+  </div>
+</div>

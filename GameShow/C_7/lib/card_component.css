@@ -1,0 +1,21 @@
+div.container {
+    margin: 16px;
+}
+
+span.label {
+    flex: 1;
+    align-self: center;
+}
+
+.message,
+.check-answer {
+    margin: 16px 0;
+}
+
+.check-answer {
+    display: block;
+}
+
+.next-button {
+  float: right;
+}
