@@ -32,5 +32,7 @@ doc/api/
 # (Library packages only! Remove pattern if developing an application package)
 pubspec.lock
 
+# Ignore files created by intellij
 **/.DS_Store
 **/.idea/
+**/*.iml
