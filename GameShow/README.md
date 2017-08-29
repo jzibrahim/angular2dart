@@ -1,6 +1,6 @@
 GameShow is my personal tutorial for Angular2Dart, a trivia game.
 
-- A_0_component- Bootstrap the app with one component
+- 0_bootstrap- Bootstrap the app with one component
 - A_1- Use text interpolation to show user's name.
 - A_2_template- Move the template to a separate file.
 - B_3.0_simple_form- Use form to allow user to enter name and level at which they want to play the game.
