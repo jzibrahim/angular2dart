@@ -4,7 +4,7 @@
 import 'package:angular/angular.dart';
 import 'package:angular_components/angular_components.dart';
 
-//TODO Step 2 - uncomment: import 'src/card/card_component.dart';
+//TODO Milestone 2 - uncomment: import 'src/card/card_component.dart';
 
 // AngularDart info: https://webdev.dartlang.org/angular
 // Components info: https://webdev.dartlang.org/components
@@ -13,7 +13,7 @@ import 'package:angular_components/angular_components.dart';
   selector: 'my-app',
   templateUrl: 'app_component.html',
   directives: const [
-    /* TODO Step 2 - uncomment: CardComponent*/
+    /* TODO Milestone 2 - uncomment: CardComponent*/
     materialDirectives
     ],
   providers: const [materialProviders],

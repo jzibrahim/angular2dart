@@ -1,1 +1,1 @@
-// TODO Step 1 - Implement card class.
+// TODO Milestone 1 - Implement card class.
