@@ -5,22 +5,14 @@
                 {{card.question}}
             </span>
             <material-select>
-                <material-select-item *ngFor="let option of card.options; let i=index"
-                                      (trigger)="answerIndex = i"
-                                      [selected]="answerIndex == i">
+                <!--TODO Step 3 - Change material-select-item to store the chosen answer index when user chooses.-->
+                <material-select-item *ngFor="let option of card.options; let i=index">
                     {{i + 1}}. {{option}}
                 </material-select-item>
             </material-select>
         </div>
     </div>
 
-    <p *ngIf="isCorrect == true" class="check">
-        <glyph icon="check"></glyph>
-        <span>Correct!!!</span>
-    </p>
-
-    <p *ngIf="isCorrect == false" class="cancel">
-        <glyph icon="cancel"></glyph>
-        <span>Try again</span>
-    </p>
+    <!--TODO Step 3 - Implement conditional to show "correct" with an icon, if user selected correct answer.-->
+    <!--TODO Step 3 - Implement conditional to show "try again" with an icon, if user selected incorrect answer.-->
 </div>

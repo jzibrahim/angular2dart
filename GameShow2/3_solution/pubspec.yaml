@@ -18,7 +18,9 @@ dev_dependencies:
 
 transformers:
 - angular:
-    entry_points: web/main.dart
+    entry_points:
+    - web/main.dart
+    - test/**_test.dart
 - angular/transform/reflection_remover:
     $include: test/**_test.dart
 - test/pub_serve:

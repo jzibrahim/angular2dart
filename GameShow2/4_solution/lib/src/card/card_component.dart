@@ -23,6 +23,8 @@ class CardComponent {
       ],
       0);
 
-  // TODO Step 3 - Save the index of the chosen answer.
-  // TODO Step 3 - Create a getter for whether the response was correct.
+  int answerIndex;
+
+  bool get isCorrect =>
+      answerIndex == null ? null : answerIndex == card.answerIndex;
 }
