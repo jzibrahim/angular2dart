@@ -2,7 +2,7 @@
 @TestOn('browser')
 import 'dart:async';
 
-// TODO Milestone 4: Create page object for the card component and import it here.
+// TODO Milestone 4 - Create page object for the card component and import it here.
 
 import 'package:angular/angular.dart';
 import 'package:angular_test/angular_test.dart';
@@ -13,6 +13,7 @@ import 'package:test/test.dart';
 
 NgTestFixture<AppComponent> fixture;
 AppPO appPO;
+//TODO Milestone 4 - uncomment: CardPO cardPO;
 
 @AngularEntrypoint()
 void main() {
@@ -21,6 +22,7 @@ void main() {
   setUp(() async {
     fixture = await testBed.create();
     appPO = await fixture.resolvePageObject(AppPO);
+    //TODO Milstone 4 - uncomment: cardPO = appPO._card;
   });
 
   tearDown(disposeAnyRunningTest);
@@ -55,7 +57,8 @@ void main() {
 
       // TODO Milestone 4 - Click correct option.
 
-      appPO = await fixture.resolvePageObject(AppPO);
+      // Get an updated view of the page object.
+      //TODO Milestone 4 - uncomment: cardPO = await fixture.resolvePageObject(CardPO);
 
       // TODO Milestone 4 - Test that "correct" is shown and "incorrect" is hidden.
     });
@@ -66,7 +69,8 @@ void main() {
 
       // TODO Milestone 4 - Click incorrect option.
 
-      appPO = await fixture.resolvePageObject(AppPO);
+      // Get an updated view of the page object.
+      //TODO Milestone 4 - uncomment: cardPO = await fixture.resolvePageObject(CardPO);
 
       // TODO Milestone 4 - Test that "incorrect" is shown and "correct" is hidden.
     });

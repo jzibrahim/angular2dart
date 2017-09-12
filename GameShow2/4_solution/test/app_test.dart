@@ -13,6 +13,7 @@ import 'package:test/test.dart';
 
 NgTestFixture<AppComponent> fixture;
 AppPO appPO;
+CardPO cardPO;
 
 @AngularEntrypoint()
 void main() {
@@ -21,6 +22,7 @@ void main() {
   setUp(() async {
     fixture = await testBed.create();
     appPO = await fixture.resolvePageObject(AppPO);
+    cardPO = appPO._card;
   });
 
   tearDown(disposeAnyRunningTest);
@@ -31,68 +33,76 @@ void main() {
 
   group('card', () {
     test('shows question', () async {
-      expect(await appPO._card.question,
+      expect(await cardPO.question,
           'What do the letters of the popular fast food chain KFC stand for?');
     });
 
     test('shows options', () async {
-      expect(await appPO._card.options[0].visibleText,
-          '1. Kentucky Fried Chicken');
-      expect(
-          await appPO._card.options[1].visibleText, '2. Kitchen Fresh Chicken');
-      expect(
-          await appPO._card.options[2].visibleText, '3. Finger Lickin\' Good');
-      expect(
-          await appPO._card.options[3].visibleText, '4. Keep Fingers Crossed');
+      expect(await cardPO.options[0].visibleText, '1. Kentucky Fried Chicken');
+      expect(await cardPO.options[1].visibleText, '2. Kitchen Fresh Chicken');
+      expect(await cardPO.options[2].visibleText, '3. Finger Lickin\' Good');
+      expect(await cardPO.options[3].visibleText, '4. Keep Fingers Crossed');
     });
 
     test('shows correct if user chose correct option', () async {
-      expect(await appPO._card.isCorrect, isNull);
-      expect(await appPO._card.isIncorrect, isNull);
+      expect(await cardPO.isCorrect, isNull);
+      expect(await cardPO.isIncorrect, isNull);
 
-      await appPO._card.clickOption(0);
-      appPO = await fixture.resolvePageObject(AppPO);
+      await cardPO.clickOption(0);
 
-      expect(await appPO._card.isCorrect, isNotNull);
-      expect(await appPO._card.isIncorrect, isNull);
+      // Get an updated view of the page object.
+      cardPO = await fixture.resolvePageObject(CardPO);
+
+      expect(await cardPO.isCorrect, isNotNull);
+      expect(await cardPO.isIncorrect, isNull);
     });
 
     test('shows incorrect if user chose incorrect option 2', () async {
-      await (appPO._card.clickOption(1));
-      appPO = await fixture.resolvePageObject(AppPO);
+      await (cardPO.clickOption(1));
 
-      expect(await appPO._card.isIncorrect, isNotNull);
-      expect(await appPO._card.isCorrect, isNull);
+      // Get an updated view of the page object.
+      cardPO = await fixture.resolvePageObject(CardPO);
+
+      expect(await cardPO.isIncorrect, isNotNull);
+      expect(await cardPO.isCorrect, isNull);
     });
 
     test('shows incorrect if user chose incorrect option 3', () async {
-      await (appPO._card.clickOption(2));
-      appPO = await fixture.resolvePageObject(AppPO);
+      await (cardPO.clickOption(2));
 
-      expect(await appPO._card.isIncorrect, isNotNull);
-      expect(await appPO._card.isCorrect, isNull);
+      // Get an updated view of the page object.
+      cardPO = await fixture.resolvePageObject(CardPO);
+
+      expect(await cardPO.isIncorrect, isNotNull);
+      expect(await cardPO.isCorrect, isNull);
     });
 
     test('shows incorrect if user chose incorrect option 4', () async {
-      await (appPO._card.clickOption(3));
-      appPO = await fixture.resolvePageObject(AppPO);
+      await (cardPO.clickOption(3));
 
-      expect(await appPO._card.isIncorrect, isNotNull);
-      expect(await appPO._card.isCorrect, isNull);
+      // Get an updated view of the page object.
+      cardPO = await fixture.resolvePageObject(CardPO);
+
+      expect(await cardPO.isIncorrect, isNotNull);
+      expect(await cardPO.isCorrect, isNull);
     });
 
     test('shows correct if user chose correct option', () async {
-      await (appPO._card.clickOption(3));
-      appPO = await fixture.resolvePageObject(AppPO);
+      await (cardPO.clickOption(3));
 
-      expect(await appPO._card.isIncorrect, isNotNull);
-      expect(await appPO._card.isCorrect, isNull);
+      // Get an updated view of the page object.
+      cardPO = await fixture.resolvePageObject(CardPO);
 
-      await (appPO._card.clickOption(0));
-      appPO = await fixture.resolvePageObject(AppPO);
+      expect(await cardPO.isIncorrect, isNotNull);
+      expect(await cardPO.isCorrect, isNull);
 
-      expect(await appPO._card.isCorrect, isNotNull);
-      expect(await appPO._card.isIncorrect, isNull);
+      await (cardPO.clickOption(0));
+
+      // Get an updated view of the page object.
+      cardPO = await fixture.resolvePageObject(CardPO);
+
+      expect(await cardPO.isCorrect, isNotNull);
+      expect(await cardPO.isIncorrect, isNull);
     });
   });
 
