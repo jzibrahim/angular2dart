@@ -28,10 +28,7 @@ void main() {
   tearDown(disposeAnyRunningTest);
 
   test('title', () async {
-    // TODO Milestone 4 - Replace with actual implementation of test.
-    expect(true, isFalse);
-
-    // TODO Milestone 4 - Test that the title is shown correctly.
+    expect(await appPO.title, 'My First AngularDart Game!');
   });
 
   group('card', () {
