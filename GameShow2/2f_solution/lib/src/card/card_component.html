@@ -1,0 +1,14 @@
+<div *ngIf="card != null" class="card">
+    <div class="container">
+        <span class="question">
+            {{card.question}}
+        </span>
+        <material-select>
+            <!--TODO Milestone 2g - Use *ngFor to iterate over all the options, no matter how many there are. -->
+            <material-select-item>1. {{card.options[0]}}</material-select-item>
+            <material-select-item>2. {{card.options[1]}}</material-select-item>
+            <material-select-item>3. {{card.options[2]}}</material-select-item>
+            <material-select-item>4. {{card.options[3]}}</material-select-item>
+        </material-select>
+    </div>
+</div>
