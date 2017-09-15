@@ -1,0 +1,16 @@
+<div *ngIf="card != null" class="card">
+    <div class="container">
+        <span class="question">
+            {{card.question}}
+        </span>
+        <material-select>
+            <!--TODO Milestone 3 - Change material-select-item to store the chosen answer index when user chooses.-->
+            <material-select-item *ngFor="let option of card.options; let i=index">
+                {{i + 1}}. {{option}}
+            </material-select-item>
+        </material-select>
+    </div>
+</div>
+
+<!--TODO Milestone 3 - Implement conditional to show "correct" with an icon, if user selected correct answer. -->
+<!--TODO Milestone 3 - Implement conditional to show "try again" with an icon, if user selected incorrect answer. -->
